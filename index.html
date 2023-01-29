@@ -31,6 +31,16 @@
             // login call, only when external browser or LINE's in-app browser is used
             if (!liff.isLoggedIn()) {
                 liff.login();
+            } else {
+                const context = liff.getContext();
+                console.log(context);
+                const idToken = liff.getIDToken();
+                console.log(idToken); // print raw idToken object
+                const decodedIDToken = liff.getDecodedIDToken();
+                console.log(decodedIDToken); // print decoded idToken object
+
+                const profile = liff.getProfile();
+                console.log(profile);
             }
         }).catch(function (error) {
             console.log(error);
