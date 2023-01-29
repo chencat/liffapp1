@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>liffapp1</title>
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
+</head>
+
+<body>
+    <h1>liffapp1</h1>
+    <script>
+        var liffID = '1657852083-1aOVe3J9';
+
+        liff.init({
+            liffId: liffID
+        }).then(function () {
+            console.log('LIFF init');
+
+            // 這邊開始寫使用其他功能
+
+            // print the environment in which the LIFF app is running
+            console.log(liff.getLanguage());
+            console.log(liff.getVersion());
+            console.log(liff.isInClient());
+            console.log(liff.isLoggedIn());
+            console.log(liff.getOS());
+            console.log(liff.getLineVersion());
+
+            // login call, only when external browser or LINE's in-app browser is used
+            if (!liff.isLoggedIn()) {
+                liff.login();
+            }
+        }).catch(function (error) {
+            console.log(error);
+        });
+    </script>
+
+</body>
+
+
+
+</html>
