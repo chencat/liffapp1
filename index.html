@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>liffapp1</title>
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 
 </head>
 
@@ -41,6 +42,16 @@
 
                 const profile = liff.getProfile();
                 console.log(profile);
+
+                axios.post('https://df7b-2001-b011-8006-1992-dde6-9b81-329d-9ed4.ngrok.io/token', {
+                    idToken: idToken
+                })
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             }
         }).catch(function (error) {
             console.log(error);
